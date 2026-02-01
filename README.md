@@ -7,13 +7,23 @@ React dashboard for SchoolERP Pro (Create React App).
 This app is **static** (HTML/CSS/JS after build). You can host it for free on GitHub Pages.
 
 1. Push this repo to GitHub (any repo name, e.g. `dashboard` or `school-erp`).
-2. In the repo: **Settings → Pages**.
-3. Under **Build and deployment**, set **Source** to **GitHub Actions**.
-4. On every push to `main` (or `master`), the workflow builds the app and deploys it.
+2. In the repo: **Settings → Pages** (left sidebar).
+3. Under **Build and deployment**, set **Source** to **GitHub Actions** (not "Deploy from a branch").
+4. Save. On every push to `main` (or `master`), the workflow builds the app and deploys it.
 5. Live URL: `https://<your-username>.github.io/<repo-name>/`  
-   Example: `https://johndoe.github.io/dashboard/`
+   Example: `https://anishkumarthe27.github.io/school-by-supernova/`
 
-No need to commit the `build` folder or run `npm run build` locally; the GitHub Action does it. The `.gitignore` is set so that pushing only source code is enough for the site to go live.
+No need to commit the `build` folder or run `npm run build` locally; the GitHub Action does it.
+
+### If you see this README on your live URL instead of the app
+
+Your site is still serving the **repository** (e.g. README), not the **built React app**. Fix it:
+
+1. Open your repo on GitHub → **Settings** → **Pages**.
+2. Under **Build and deployment**, find **Source**.
+3. Change it from **"Deploy from a branch"** to **"GitHub Actions"**.
+4. Save. Re-run the latest workflow: **Actions** tab → **Deploy to GitHub Pages** → **Run workflow** (or push a small commit).
+5. Wait 1–2 minutes, then open your site again. You should see the SchoolERP Pro dashboard (top bar, sidebar, role selector), not this README.
 
 ## Available Scripts
 
