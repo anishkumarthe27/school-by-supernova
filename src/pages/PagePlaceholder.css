@@ -1,0 +1,16 @@
+.page-placeholder {
+  max-width: 900px;
+}
+
+.page-placeholder__title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #212529;
+  margin: 0 0 1.5rem;
+}
+
+.page-placeholder__text {
+  margin: 0;
+  color: #6c757d;
+  line-height: 1.6;
+}

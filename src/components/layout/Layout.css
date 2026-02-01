@@ -1,0 +1,23 @@
+.layout {
+  min-height: 100vh;
+  background-color: #F5F7FA;
+}
+
+.layout__main {
+  margin-top: 64px;
+  margin-left: 240px;
+  padding: 2rem;
+  min-height: calc(100vh - 64px);
+  transition: margin-left 0.3s ease;
+}
+
+.layout__main--expanded {
+  margin-left: 0;
+}
+
+@media (max-width: 768px) {
+  .layout__main {
+    margin-left: 0;
+    padding: 1rem;
+  }
+}

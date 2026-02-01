@@ -1,6 +1,19 @@
-# Getting Started with Create React App
+# SchoolERP Pro – Dashboard
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+React dashboard for SchoolERP Pro (Create React App).
+
+## Hosting on GitHub Pages (free)
+
+This app is **static** (HTML/CSS/JS after build). You can host it for free on GitHub Pages.
+
+1. Push this repo to GitHub (any repo name, e.g. `dashboard` or `school-erp`).
+2. In the repo: **Settings → Pages**.
+3. Under **Build and deployment**, set **Source** to **GitHub Actions**.
+4. On every push to `main` (or `master`), the workflow builds the app and deploys it.
+5. Live URL: `https://<your-username>.github.io/<repo-name>/`  
+   Example: `https://johndoe.github.io/dashboard/`
+
+No need to commit the `build` folder or run `npm run build` locally; the GitHub Action does it. The `.gitignore` is set so that pushing only source code is enough for the site to go live.
 
 ## Available Scripts
 

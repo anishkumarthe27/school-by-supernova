@@ -1,4 +1,6 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# This repo is set up for GitHub Pages: push to main and the GitHub Action will build and deploy.
+# Do not remove /build or /node_modules — they are correct for free hosting.
 
 # dependencies
 /node_modules
@@ -8,16 +10,17 @@
 # testing
 /coverage
 
-# production
+# production (deployed by GitHub Actions; do not commit)
 /build
 
 # misc
 .DS_Store
+.env
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
-
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*

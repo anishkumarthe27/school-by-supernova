@@ -1,24 +1,30 @@
-import logo from './logo.svg';
+import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
+import { ThemeProvider } from './context/ThemeContext';
+import AppRoutes from './routes/AppRoutes';
 import './App.css';
+
+// Basename for GitHub Pages: use first path segment (e.g. /dashboard) when hosted at username.github.io/repo/
+function getBasename() {
+  if (process.env.PUBLIC_URL && process.env.PUBLIC_URL !== '.') {
+    try {
+      return new URL(process.env.PUBLIC_URL).pathname.replace(/\/$/, '') || '';
+    } catch {
+      return '';
+    }
+  }
+  const path = window.location.pathname;
+  const match = path.match(/^(\/[^/]+)/);
+  return match ? match[1] : '';
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider>
+      <BrowserRouter basename={getBasename()}>
+        <AppRoutes />
+      </BrowserRouter>
+    </ThemeProvider>
   );
 }
 
