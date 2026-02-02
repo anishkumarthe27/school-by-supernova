@@ -33,6 +33,10 @@ jobs:
         run: npm ci
 
       - name: Build
+        env:
+          # Use repo name as base path so assets load on GitHub Pages (username.github.io/REPO_NAME/)
+          CI: false
+          PUBLIC_URL: /${{ github.event.repository.name }}/
         run: npm run build
 
       # GitHub Pages returns 404 for paths like /dashboard/students; copy index so SPA routing works

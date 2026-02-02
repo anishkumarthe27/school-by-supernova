@@ -5,11 +5,13 @@ import { DeviceProvider } from './context/DeviceContext';
 import AppRoutes from './routes/AppRoutes';
 import './App.css';
 
-// Basename for GitHub Pages: use first path segment (e.g. /dashboard) when hosted at username.github.io/repo/
+// Basename for GitHub Pages: use PUBLIC_URL path (e.g. /school-by-supernova) when set at build time
 function getBasename() {
-  if (process.env.PUBLIC_URL && process.env.PUBLIC_URL !== '.') {
+  const pub = process.env.PUBLIC_URL;
+  if (pub && pub !== '.') {
+    if (pub.startsWith('/')) return pub.replace(/\/$/, '') || '';
     try {
-      return new URL(process.env.PUBLIC_URL).pathname.replace(/\/$/, '') || '';
+      return new URL(pub).pathname.replace(/\/$/, '') || '';
     } catch {
       return '';
     }

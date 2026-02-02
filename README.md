@@ -33,17 +33,20 @@ This app is **static** (HTML/CSS/JS after build). You can host it for free on Gi
 5. Live URL: `https://<your-username>.github.io/<repo-name>/`  
    Example: `https://anishkumarthe27.github.io/school-by-supernova/`
 
-No need to commit the `build` folder or run `npm run build` locally; the GitHub Action does it.
+No need to commit the `build` folder; the workflow runs `npm run build` and deploys the output.  
+If your repo name is not `school-by-supernova`, update the `homepage` field in `package.json` to match your URL.
 
 ### If you see this README on your live URL instead of the app
 
-Your site is still serving the **repository** (e.g. README), not the **built React app**. Fix it:
+The site is serving the **repository** (README), not the **built React app**. Do this:
 
 1. Open your repo on GitHub → **Settings** → **Pages**.
-2. Under **Build and deployment**, find **Source**.
-3. Change it from **"Deploy from a branch"** to **"GitHub Actions"**.
-4. Save. Re-run the latest workflow: **Actions** tab → **Deploy to GitHub Pages** → **Run workflow** (or push a small commit).
-5. Wait 1–2 minutes, then open your site again. You should see the SchoolERP Pro dashboard (top bar, sidebar, role selector), not this README.
+2. Under **Build and deployment**, set **Source** to **GitHub Actions** (not "Deploy from a branch").
+3. Save.
+4. Go to the **Actions** tab → **Deploy to GitHub Pages** → **Run workflow** (or push a new commit to `main`).
+5. Wait 2–3 minutes for the workflow to finish (green check), then open your site again. You should see the SchoolERP Pro dashboard, not this README.
+
+If it still shows the README, confirm in **Settings → Pages** that the source is **GitHub Actions** and that the latest workflow run succeeded.
 
 ## Available Scripts
 
