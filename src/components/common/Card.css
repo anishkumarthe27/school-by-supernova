@@ -1,15 +1,26 @@
 .card {
   background-color: white;
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-md);
   padding: 1.5rem;
-  transition: transform 0.2s, box-shadow 0.2s;
-  border: 1px solid var(--gray-200);
+  transition: transform 0.2s;
+}
+
+@media (max-width: 768px) {
+  .card {
+    padding: 1rem;
+  }
+
+  .card__header {
+    margin-bottom: 1rem;
+  }
+
+  .card__title {
+    font-size: 15px;
+  }
 }
 
 .card:hover {
   transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
 }
 
 .card__header {

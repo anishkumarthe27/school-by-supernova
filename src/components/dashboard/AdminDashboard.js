@@ -158,7 +158,9 @@ function AdminDashboard() {
               </button>
             }
           >
+            <div className="data-table-wrapper">
             <DataTable columns={approvalColumns} data={pendingApprovals} keyField="id" />
+          </div>
           </Card>
         </div>
         <div className="dashboard-grid__col dashboard-grid__col--6">
@@ -170,7 +172,9 @@ function AdminDashboard() {
               </button>
             }
           >
+            <div className="data-table-wrapper">
             <DataTable columns={eventColumns} data={upcomingEvents} keyField="id" />
+          </div>
           </Card>
         </div>
       </div>

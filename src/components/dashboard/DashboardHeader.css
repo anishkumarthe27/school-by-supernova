@@ -12,13 +12,31 @@
   margin: 0;
 }
 
+@media (max-width: 768px) {
+  .dashboard-header {
+    margin-bottom: 1.25rem;
+  }
+
+  .dashboard-header__title {
+    font-size: 20px;
+  }
+
+  .dashboard-header__date {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+
+  .dashboard-header__date-icon {
+    font-size: 16px;
+  }
+}
+
 .dashboard-header__date {
   font-size: 14px;
   color: #6c757d;
   background-color: white;
   padding: 8px 16px;
   border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   display: flex;
   align-items: center;
   gap: 8px;

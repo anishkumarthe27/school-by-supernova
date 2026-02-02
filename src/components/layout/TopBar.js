@@ -1,16 +1,20 @@
 import React, { useState } from 'react';
 import { useTheme } from '../../context/ThemeContext';
+import { useDevice } from '../../context/DeviceContext';
+import { DEVICE_LABELS } from '../../config/deviceDetection';
 import './TopBar.css';
 
 const ROLE_LABELS = {
+  superadmin: 'Super Admin',
   admin: 'Administrator',
   teacher: 'Teacher',
   student: 'Student',
   parent: 'Parent',
 };
 
-function TopBar({ sidebarCollapsed, onToggleSidebar, currentRole = 'admin', userName = 'John Doe' }) {
+function TopBar({ sidebarCollapsed, onToggleSidebar, currentRole = 'superadmin', userName = 'John Doe' }) {
   const theme = useTheme();
+  const { type: deviceType } = useDevice();
   const [searchValue, setSearchValue] = useState('');
 
   const initials = userName
@@ -64,6 +68,9 @@ function TopBar({ sidebarCollapsed, onToggleSidebar, currentRole = 'admin', user
       </div>
 
       <div className="topbar__right">
+        <span className="topbar__device" title={`Viewing as ${DEVICE_LABELS[deviceType] || deviceType}`}>
+          {DEVICE_LABELS[deviceType] || deviceType}
+        </span>
         <button type="button" className="topbar__icon-btn" aria-label="Help">
           <span className="material-icons-round">help_outline</span>
         </button>

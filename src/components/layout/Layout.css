@@ -15,9 +15,33 @@
   margin-left: 0;
 }
 
-@media (max-width: 768px) {
+.layout__backdrop {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 899;
+  transition: opacity 0.2s ease;
+}
+
+.layout__backdrop--visible {
+  display: block;
+}
+
+@media (max-width: 1024px) {
   .layout__main {
     margin-left: 0;
+    padding: 1.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .layout__main {
     padding: 1rem;
+    margin-top: 56px;
+    min-height: calc(100vh - 56px);
   }
 }

@@ -5,44 +5,32 @@ import './Sidebar.css';
 
 const navSections = [
   {
-    title: 'Main',
+    title: 'Home',
     items: [
+      { to: '/home', icon: 'home', label: 'Home' },
       { to: '/', icon: 'dashboard', label: 'Dashboard' },
       { to: '/academics', icon: 'school', label: 'Academics' },
       { to: '/students', icon: 'people', label: 'Students' },
-    ],
-  },
-  {
-    title: 'Management',
-    items: [
       { to: '/staff', icon: 'account_circle', label: 'Staff' },
       { to: '/finance', icon: 'attach_money', label: 'Finance' },
       { to: '/inventory', icon: 'inventory', label: 'Inventory' },
-    ],
-  },
-  {
-    title: 'Communication',
-    items: [
       { to: '/announcements', icon: 'announcement', label: 'Announcements' },
       { to: '/messages', icon: 'email', label: 'Messages' },
       { to: '/calendar', icon: 'event', label: 'Calendar' },
-    ],
-  },
-  {
-    title: 'Reports',
-    items: [
-      { to: '/analytics', icon: 'assessment', label: 'Analytics' },
-      { to: '/reports', icon: 'description', label: 'Reports' },
+      { to: '/analytics', icon: 'assessment', label: 'Reports & Analytics' },
     ],
   },
 ];
 
-function Sidebar({ collapsed, onToggle }) {
+function Sidebar({ collapsed, onToggle, onNavigate, currentRole, isOverlayMode }) {
   const theme = useTheme();
+  const handleNavClick = () => {
+    if (typeof onNavigate === 'function') onNavigate();
+  };
 
   return (
     <aside
-      className={`sidebar ${collapsed ? 'sidebar--collapsed' : ''}`}
+      className={`sidebar ${collapsed ? 'sidebar--collapsed' : ''} ${isOverlayMode ? 'sidebar--overlay' : ''}`}
       style={{
         '--primary': theme.primary,
         '--gray-100': theme.gray100,
@@ -61,6 +49,7 @@ function Sidebar({ collapsed, onToggle }) {
                 `sidebar__item ${isActive ? 'sidebar__item--active' : ''}`
               }
               end={item.to === '/'}
+              onClick={handleNavClick}
             >
               <span className="material-icons-round sidebar__icon">
                 {item.icon}

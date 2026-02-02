@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from './context/ThemeContext';
+import { DeviceProvider } from './context/DeviceContext';
 import AppRoutes from './routes/AppRoutes';
 import './App.css';
 
@@ -21,9 +22,11 @@ function getBasename() {
 function App() {
   return (
     <ThemeProvider>
-      <BrowserRouter basename={getBasename()}>
-        <AppRoutes />
-      </BrowserRouter>
+      <DeviceProvider>
+        <BrowserRouter basename={getBasename()}>
+          <AppRoutes />
+        </BrowserRouter>
+      </DeviceProvider>
     </ThemeProvider>
   );
 }

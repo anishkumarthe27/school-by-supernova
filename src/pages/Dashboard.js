@@ -2,14 +2,15 @@ import React from 'react';
 import { useOutletContext } from 'react-router-dom';
 import {
   DashboardHeader,
+  SuperAdminDashboard,
   AdminDashboard,
   TeacherDashboard,
   StudentDashboard,
   ParentDashboard,
 } from '../components/dashboard';
-import { RoleSelector } from '../components/common';
 
 const ROLE_VIEWS = {
+  superadmin: SuperAdminDashboard,
   admin: AdminDashboard,
   teacher: TeacherDashboard,
   student: StudentDashboard,
@@ -17,13 +18,12 @@ const ROLE_VIEWS = {
 };
 
 function Dashboard() {
-  const { currentRole, setCurrentRole } = useOutletContext();
-  const RoleView = ROLE_VIEWS[currentRole] || AdminDashboard;
+  const { currentRole } = useOutletContext();
+  const RoleView = ROLE_VIEWS[currentRole] || SuperAdminDashboard;
 
   return (
     <>
       <DashboardHeader title="School Dashboard" />
-      <RoleSelector currentRole={currentRole} onRoleChange={setCurrentRole} />
       <RoleView />
     </>
   );

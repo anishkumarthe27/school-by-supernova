@@ -2,6 +2,26 @@
 
 React dashboard for SchoolERP Pro (Create React App).
 
+## Troubleshooting: `es-toolkit` / "Module not found" errors
+
+If you see errors like **Can't resolve '../dist/compat/...' in 'node_modules/es-toolkit/compat'**, it's from old dependencies (recharts/es-toolkit) left in `node_modules`. The app **no longer uses recharts**; charts use plain SVG/CSS.
+
+**Fix (do this with the dev server stopped):**
+
+1. **Stop the dev server** (Ctrl+C in the terminal where `npm start` is running).
+2. **Close this project in Cursor/VS Code** (or at least close any terminal using the project folder).
+3. Open a **new terminal** (e.g. PowerShell or Command Prompt).
+4. Go to the project folder and remove old dependencies:
+   ```bash
+   cd d:\raw-folder\dashboard
+   rmdir /s /q node_modules
+   del package-lock.json
+   npm install
+   ```
+5. Start the app again: `npm start`.
+
+If `rmdir /s /q node_modules` fails with "Access denied", something is still using files (antivirus, another IDE window, or a leftover Node process). Close other apps, or restart the PC, then repeat from step 4.
+
 ## Hosting on GitHub Pages (free)
 
 This app is **static** (HTML/CSS/JS after build). You can host it for free on GitHub Pages.

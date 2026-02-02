@@ -1,5 +1,13 @@
+.data-table-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+  min-width: 0;
+}
+
 .data-table {
   width: 100%;
+  min-width: 600px;
   border-collapse: collapse;
 }
 
@@ -8,12 +16,10 @@
   padding: 12px;
   font-weight: 600;
   color: #495057;
-  border-bottom: 2px solid #dee2e6;
 }
 
 .data-table td {
   padding: 12px;
-  border-bottom: 1px solid #e9ecef;
 }
 
 .data-table tbody tr:hover {
@@ -41,4 +47,32 @@
 .status-badge--overdue {
   background-color: rgba(244, 67, 54, 0.1);
   color: #F44336;
+}
+
+.data-table__badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.data-table__badge--pending {
+  background-color: rgba(255, 152, 0, 0.1);
+  color: #FF9800;
+}
+
+.data-table__badge--overdue {
+  background-color: rgba(244, 67, 54, 0.1);
+  color: #F44336;
+}
+
+.data-table__badge--active {
+  background-color: rgba(76, 175, 80, 0.1);
+  color: #4CAF50;
+}
+
+.data-table__badge--warning {
+  background-color: rgba(255, 152, 0, 0.1);
+  color: #FF9800;
 }

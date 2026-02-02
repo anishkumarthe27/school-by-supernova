@@ -1,4 +1,5 @@
 export { default as DashboardHeader } from './DashboardHeader';
+export { default as SuperAdminDashboard } from './SuperAdminDashboard';
 export { default as AdminDashboard } from './AdminDashboard';
 export { default as TeacherDashboard } from './TeacherDashboard';
 export { default as StudentDashboard } from './StudentDashboard';
